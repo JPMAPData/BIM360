@@ -21,11 +21,11 @@ projetos = []
 def getToken(client_id, client_secret):
     """Obtain Forge token given a client id & secret"""
     req = { 'client_id' : client_id, 'client_secret': client_secret, 'grant_type' : 'client_credentials','scope':'data:read'}
-    resp = requests.post('https://developer.api.autodesk.com/authentication/v1/authenticate', req).json();
+    resp = requests.post('https://developer.api.autodesk.com/authentication/v1/authenticate', req).json()
     #return resp['token_type'] + " " + resp['access_token']
     return resp['access_token']
-  
-token = getToken("Dm1AJ95famLKnf4MUOGpwO7zJIcBF4J7", "vAyaauIpMr4qhy6O")
+
+token = getToken("Dm1AJ95famLKnf4MUOGpwO7zJIcBF4J7", "V050fdb1761e4460")
 
 def getRespJson(url, token):
     headers = {'Authorization': 'Bearer ' + token}
@@ -87,7 +87,7 @@ def conteudos(pasta):
             print(conteudo.nome)
 
 for projeto in projetos:
-    print("Projeto: "projeto.nome)
+    print("Projeto :"+projeto.nome)
     for element in projeto.items:
         if element.tipo == 'Pasta':
             conteudos(element)
